@@ -7,16 +7,17 @@ jobs:
     steps:
       - run: echo hello world
 
-build_skim:
-   runs-on: ubuntu-latest
-   container: rootproject/root-conda:${{ matrix.version }}
-   strategy:
-     matrix:
-       version: [6.18.04, latest]
-   steps:
-     - name: checkout repository
-       uses: actions/checkout@v2
-     - name: build
+  build_skim:
+    runs-on: ubuntu-latest
+    container: rootproject/root-conda:${{ matrix.version }}
+    strategy:
+      matrix:
+        version: [6.18.04, latest]
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+
+      - name: build
         run: |
           COMPILER=$(root-config --cxx)
           FLAGS=$(root-config --cflags --libs)
