@@ -14,7 +14,7 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v2
       - name: build_skim
-        run:
+        run: |
           COMPILER=$(root-config --cxx)
           FLAGS=$(root-config --cflags --libs)
           $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
