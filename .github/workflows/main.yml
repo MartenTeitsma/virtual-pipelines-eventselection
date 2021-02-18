@@ -18,3 +18,16 @@ jobs:
           COMPILER=$(root-config --cxx)
           FLAGS=$(root-config --cflags --libs)
           $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
+
+  build_skim_latest:
+    runs-on: ubuntu-latest
+    container: rootproject/root-conda:latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+
+      - name: latest
+        run: |
+          COMPILER=$(root-config --cxx)
+          FLAGS=$(root-config --cflags --libs)
+          $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
