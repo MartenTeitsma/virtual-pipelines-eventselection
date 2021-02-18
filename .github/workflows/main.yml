@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     container: rootproject/root-conda:6.18.04
     steps:
-#     - name: checkout repository
-#      uses: actions/checkout@v2
+      - name: checkout repository
+        uses: actions/checkout@v2
       - name: build_skim
         run:
           COMPILER=$(root-config --cxx)
