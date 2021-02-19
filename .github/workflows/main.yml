@@ -42,4 +42,6 @@ jobs:
           name: skim6.18.04
 
       - name: skim
-        run: ./skim
+        run: |
+          chmod +x ./skim
+          ./skim
