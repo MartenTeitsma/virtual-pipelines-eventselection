@@ -44,6 +44,7 @@ jobs:
       - name: skim
         run: |
           chmod +x ./skim
+          printf $USER_PASS | base64 -d | kinit $USER_NAME
           ./skim root://eosuser.cern.ch//eos/user/g/gstark/AwesomeWorkshopFeb2020/GluGluToHToTauTau.root \
           skim_ggH.root \
           19.6 \
